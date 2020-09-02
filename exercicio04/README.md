@@ -1,16 +1,30 @@
-# exercicio04
+# Exercício 4
 
-A new Flutter application.
+Esse exercício tem como intuíto exercitar o uso de Stateful widgets e de entradas de dados.
 
-## Getting Started
+## Instruções
 
-This project is a starting point for a Flutter application.
+- Criar um simulador de paleta de cores, contendo 3 entradas. Onde o usuario poderá digitar o codigo hex das cores e após pressionar o botao "atualizar" as cores dos widget são atualizadas.
+- Deverá ser criado uma tela, semelhante a figura a seguir:
+- ![alt text](tela-exercicio.png)
 
-A few resources to get you started if this is your first Flutter project:
+### Convertendo código hex para cor
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Para auxiliar na conversão das entradas para as cores desejadas, foi criado este utils. para usa-lo basta criar um arquivo `color_utils.dart` e colar o conteúdo abaixo.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+  import 'dart:ui';
+
+  class ColorUtils {
+    static Color fromHex(String hexCode) {
+      final colorHexRegex = RegExp('(#{0,1})([0-9a-fA-F]{6})');
+
+      if (!colorHexRegex.hasMatch(hexCode)) {
+        throw Exception('"$hexCode" is not a valid color code');
+      }
+      hexCode = hexCode.replaceFirst('#', '0');
+
+      return Color(0xff000000 + int.parse(hexCode, radix: 16));
+    }
+  }
+```
