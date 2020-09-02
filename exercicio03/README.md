@@ -1,10 +1,10 @@
-# exercicio3
+# Exercício 3
 
-A new Flutter application.
+Esse exercício tem como intuíto exercitar questão de Tipos diferentes de Imput.
 
 ## Instruções
-Deverá ser criado uma tela, semelhante a figura a seguir:
-![alt text](tela-exercicio-3.png)
+- Deverá ser criado uma tela, semelhante a figura a seguir:
+<img src="tela-exercicio-3.png"  width="300" height="550">
 
 Faremos uma validação simples de formulário.
 
