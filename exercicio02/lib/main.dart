@@ -1,6 +1,5 @@
-import 'package:exercicio02/components/item_list.dart';
 import 'package:flutter/material.dart';
-
+import 'package:exercicio02/components/item_list.dart';
 import 'components/item_button.dart';
 
 void main() {
@@ -11,11 +10,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Exercício 2',
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Exercício 2'),
+      home: MyHomePage(),
     );
   }
 }
