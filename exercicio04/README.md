@@ -6,7 +6,7 @@ Esse exercício tem como intuíto exercitar o uso de Stateful widgets e de entra
 
 - Criar um simulador de paleta de cores, contendo 3 entradas. Onde o usuario poderá digitar o codigo hex das cores e após pressionar o botao "atualizar" as cores dos widget são atualizadas.
 - Deverá ser criado uma tela, semelhante a figura a seguir:
-- ![alt text](tela-exercicio.png)
+<img src="tela-exercicio.png"  width="300" height="550">
 
 ### Convertendo código hex para cor
 
