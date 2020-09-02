@@ -5,6 +5,8 @@ Esse exercício tem como intuíto exercitar questão de posicionamento de Widget
 ## Instruções
 - Deverá ser criado uma tela, semelhante a figura a seguir:
 - ![alt text](tela-exercicio.png)
+<img src="tela-exercicio.png"  width="300" height="550">
+
 
 ### Cores e ícones
 
