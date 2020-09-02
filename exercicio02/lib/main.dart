@@ -1,6 +1,5 @@
-import 'package:exercicio02/components/item_list.dart';
 import 'package:flutter/material.dart';
-
+import 'package:exercicio02/components/item_list.dart';
 import 'components/item_button.dart';
 
 void main() {
