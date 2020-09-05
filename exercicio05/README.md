@@ -1,16 +1,12 @@
-# Exercício 3
+# Exercício 5
 
-Esse exercício tem como intuíto exercitar questão de Tipos diferentes de Imput.
+Esse exercício tem como intuíto exercitar a nagegação entre telas.
 
 ## Instruções
-- Deverá ser criado uma tela, semelhante a figura a seguir:
-<img src="telas-exercicio.jpeg"  width="300" height="550">
+- Deverão ser criadas telas, semelhantes as da figura a seguir:
+<img src="telas-exercicio.jpeg"  width="850" height="550">
 
 Faremos uma validação simples de formulário.
-
-O botão 'Register', deverá apresentar no console as informações inseridas.
-
-Cada campo de informação, deverá ter o teclado mais adequado.
 
 ## Figma File
 
