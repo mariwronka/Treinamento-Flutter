@@ -1,16 +1,10 @@
-# exercicio06
+# Exercício 6
 
-A new Flutter application.
+Esse exercício tem como intuít exercitar programação com Flutter.
 
-## Getting Started
+## Instruções
 
-This project is a starting point for a Flutter application.
+- Baseada na calculadora padrão do iOS, essa aplicação executa as seguintes funções: `soma`, `subtração`, `multiplicação`, `divisão`, `porcentagem` e `+/-`. 
+- Deverá ser criado uma tela semelhante a figura a seguir:
+<img src="Calculator.png"  width="300" height="550">
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
