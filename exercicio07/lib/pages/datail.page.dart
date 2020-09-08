@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:exercicio7start/components/item_loader.dart';
 import 'package:exercicio7start/models/news.model.dart';
 import 'package:exercicio7start/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ class _DetailPageState extends State<DetailPage> {
         width: double.infinity,
         child: Stack(
           children: <Widget>[
-            new WebView(
+            WebView(
               key: _key,
               initialUrl: _url,
               javascriptMode: JavascriptMode.unrestricted,
@@ -77,7 +78,7 @@ class _DetailPageState extends State<DetailPage> {
             _isLoadingPage
                 ? Container(
                     alignment: FractionalOffset.center,
-                    child: CircularProgressIndicator(),
+                    child: itemLoader(color: ColorUtils.accentColor),
                   )
                 : Container(
                     color: Colors.transparent,

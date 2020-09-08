@@ -3,12 +3,14 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget itemLoader() {
+Widget itemLoader({Color color}) {
   return Center(
     child: Platform.isAndroid
         ? CircularProgressIndicator(
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
+            valueColor: new AlwaysStoppedAnimation<Color>(color),
           )
-        : CupertinoActivityIndicator(),
+        : CupertinoActivityIndicator(
+            radius: 18,
+          ),
   );
 }

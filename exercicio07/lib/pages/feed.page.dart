@@ -46,7 +46,7 @@ class _FeedPageState extends State<FeedPage> {
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 6),
         color: ColorUtils.backgroudPages,
-        child: _news.isEmpty ? itemLoader() : ListView.builder(
+        child: _news.isEmpty ? itemLoader(color: Colors.white) : ListView.builder(
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
