@@ -1,4 +1,4 @@
-# Exercício 7
+# Exercício 7 
 
 Devido a pandemia, Godinez não tem conseguido ler seu jornal matinal.
 Para inovarmos e fazer um app revolucionário, iremos extrair dados de uma API pública de notícias e montar um feed. 
