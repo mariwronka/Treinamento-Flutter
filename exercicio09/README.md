@@ -1,16 +1,27 @@
-# exercicio09
+# Exercício 9
 
-A new Flutter application.
+Utilizaremos a API abaixo:
 
-## Getting Started
+https://dog.ceo/dog-api/
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Deverão ser criadas duas telas:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+A primeira tela será para busca de cachorros por raça, conforme imagem abaixo:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![alt text](searchScreen.png)
+
+A segunda tela mostrará uma foto de um cachorro da raça digitada, caso encontrado, e terá um botão para carregar outra imagem da mesma raça.
+
+![alt text](pugSearch.png)
+
+
+A tela mostrará o nosso clássico vira-lata caramelo e uma mensagem de erro, caso não encontre nada com o que o usuário digitou.
+
+![alt text](viralata.png)
+
+
+A segunda tela, acessada por meio do menu inferior, buscará uma imagem aleatória da API fornecida:
+
+
+![alt text](randomPic.png)

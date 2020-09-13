@@ -94,7 +94,11 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
                   ),
                   Container(
                     color: ColorUtils.backgroudNotImage,
-                    child: _getImageDog(),
+                    child: FadeInImage.assetNetwork(
+                      placeholder: 'assets/images/image_awaiting_search.png',
+                      image: _urlBreedImage,
+                    ),
+                    //child: _getImageDog(),
                   ),
                   SizedBox(
                     height: 20,
