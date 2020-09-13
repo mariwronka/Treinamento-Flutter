@@ -1,5 +1,7 @@
-import 'package:exercicio09/utils/colors.dart';
+import 'package:exercicio09/components/item_load.dart';
+import 'package:exercicio09/network/api.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class PicTheDayPage extends StatefulWidget {
   @override
@@ -7,6 +9,21 @@ class PicTheDayPage extends StatefulWidget {
 }
 
 class _PicTheDayPageState extends State<PicTheDayPage> {
+  String _imageUrl = '';
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _updateImageDog();
+  }
+
+  _updateImageDog() async {
+    String urlImage = await Api().getRandomDog();
+    setState(() {
+      _imageUrl = urlImage;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,16 +36,24 @@ class _PicTheDayPageState extends State<PicTheDayPage> {
           fit: BoxFit.cover,
         ),
       ),
-      child: Center(
-        child: Container(
-          color: ColorUtils.backgroudNotImage,
-          //child: Image.asset('assets/images/image_awaiting_search.png')
-          child: FadeInImage.assetNetwork(
-            placeholder: 'assets/images/image_awaiting_search.png',
-            image:
-            'http://www.dognamoro.com.br/wp-content/uploads/2016/12/imagens-de-cachorros-fofinhos-4.jpg',
+      child: Stack(
+        children: [
+          Container(
+            child: Center(
+              child: itemLoader(),
+            ),
           ),
-        ),
+          Container(
+            child: Center(
+              child: FadeInImage.assetNetwork(
+                width: double.infinity,
+                placeholder: 'assets/images/image_awaiting_search.png',
+                image: _imageUrl,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

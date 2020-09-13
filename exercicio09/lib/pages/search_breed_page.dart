@@ -1,4 +1,5 @@
 import 'package:exercicio09/Utils/colors.dart';
+import 'package:exercicio09/components/item_load.dart';
 import 'package:exercicio09/network/api.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,37 +10,59 @@ class SearchBreedPage extends StatefulWidget {
 }
 
 class _SearchBreedPageState extends State<SearchBreedPage> {
-  String _urlBreedImage = '';
+  String _imageUrl = '';
   TextEditingController _typeBreedController = TextEditingController();
+  bool _isUpdateImage = false;
+  FocusNode _focusNode;
 
-  _onChangeTypeBreed(value) {
-    _loadBreed();
+  @override
+  void initState() {
+    _focusNode = FocusNode();
+    _focusNode.addListener(() {
+      if (_focusNode.hasFocus) _typeBreedController.clear();
+    });
+    super.initState();
   }
 
-  _loadBreed() async {
+  _searchBreed(value) {
+    _updateImageDog();
+  }
+
+  _updateImageDog() async {
     String urlImage = await Api().getDogByBreed(_typeBreedController.text);
     setState(() {
-      _urlBreedImage = urlImage;
+      _imageUrl = urlImage;
+      _isUpdateImage = true;
     });
   }
 
-  Widget _getImageDog() {
-    if (_typeBreedController.text.isEmpty)
+  Widget _showImageDog() {
+    if (!_isUpdateImage)
       return Image.asset('assets/images/image_awaiting_search.png');
-    return _urlBreedImage.isNotEmpty
+    _isUpdateImage = false;
+    if (_typeBreedController.text.isEmpty)
+      return Image.asset(
+        'assets/images/image_awaiting_search.png',
+        fit: BoxFit.contain,
+      );
+    return _imageUrl.isNotEmpty
         ? FadeInImage.assetNetwork(
+            width: double.infinity,
             placeholder: '',
-            image: _urlBreedImage,
+            image: _imageUrl,
+            fit: BoxFit.contain,
           )
         : FadeInImage.assetNetwork(
+            width: double.infinity,
             placeholder: '',
+            fit: BoxFit.contain,
             image:
                 'https://fotos.amomeupet.org/uploads/fotos/1300x0_1568662224_5d7fe2d09bccd.jpeg',
           );
   }
 
-  Widget _getMessageError() {
-    return _urlBreedImage.isEmpty && _typeBreedController.text.isNotEmpty
+  Widget _showMessageError() {
+    return _imageUrl.isEmpty && _typeBreedController.text.isNotEmpty
         ? Container(
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
@@ -77,15 +100,17 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 40,
+              ),
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
                   TextField(
                     controller: _typeBreedController,
-                    onChanged: (String value) => _onChangeTypeBreed(value),
+                    focusNode: _focusNode,
+                    onSubmitted: (String value) => _searchBreed(value),
                     style: TextStyle(fontSize: 18, color: ColorUtils.darkColor),
                     decoration: InputDecoration(
                       filled: true,
@@ -102,15 +127,21 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
                     children: [
                       Container(
                         padding: const EdgeInsets.only(top: 80),
-                        child: Center(child: CircularProgressIndicator()),
+                        child: Center(
+                          child: itemLoader(),
+                        ),
                       ),
-                      Container(child: Center(child: _getImageDog()))
+                      Container(
+                        child: Center(
+                          child: _showImageDog(),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(
                     height: 20,
                   ),
-                  _getMessageError(),
+                  _showMessageError(),
                 ],
               ),
             ),
@@ -132,7 +163,7 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
                       ),
                     ),
                     color: ColorUtils.primaryColor,
-                    onPressed: _loadBreed,
+                    onPressed: _updateImageDog,
                   ),
                 ),
               ],
