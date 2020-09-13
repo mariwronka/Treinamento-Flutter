@@ -27,9 +27,15 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
     if (_typeBreedController.text.isEmpty)
       return Image.asset('assets/images/image_awaiting_search.png');
     return _urlBreedImage.isNotEmpty
-        ? Image.network(_urlBreedImage)
-        : Image.network(
-            'https://fotos.amomeupet.org/uploads/fotos/1300x0_1568662224_5d7fe2d09bccd.jpeg');
+        ? FadeInImage.assetNetwork(
+            placeholder: '',
+            image: _urlBreedImage,
+          )
+        : FadeInImage.assetNetwork(
+            placeholder: '',
+            image:
+                'https://fotos.amomeupet.org/uploads/fotos/1300x0_1568662224_5d7fe2d09bccd.jpeg',
+          );
   }
 
   Widget _getMessageError() {
@@ -61,9 +67,9 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
     return Container(
       height: double.infinity,
       width: MediaQuery.of(context).size.width,
-      decoration: new BoxDecoration(
-        image: new DecorationImage(
-          image: new AssetImage('assets/images/backgroud.png'),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/backgroud.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -80,7 +86,7 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
                   TextField(
                     controller: _typeBreedController,
                     onChanged: (String value) => _onChangeTypeBreed(value),
-                    style: new TextStyle(fontSize: 18, color: ColorUtils.darkColor),
+                    style: TextStyle(fontSize: 18, color: ColorUtils.darkColor),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white,
@@ -92,13 +98,14 @@ class _SearchBreedPageState extends State<SearchBreedPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    color: ColorUtils.backgroudNotImage,
-                    child: FadeInImage.assetNetwork(
-                      placeholder: 'assets/images/image_awaiting_search.png',
-                      image: _urlBreedImage,
-                    ),
-                    //child: _getImageDog(),
+                  Stack(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.only(top: 80),
+                        child: Center(child: CircularProgressIndicator()),
+                      ),
+                      Container(child: Center(child: _getImageDog()))
+                    ],
                   ),
                   SizedBox(
                     height: 20,
