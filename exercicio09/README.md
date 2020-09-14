@@ -1,9 +1,6 @@
 # Exercício 9
 
-Utilizaremos a API abaixo:
-
-https://dog.ceo/dog-api/
-
+Utilizaremos a seguinte API: https://dog.ceo/dog-api/
 
 Deverão ser criadas duas telas:
 
